@@ -1,0 +1,66 @@
+#:include  home.kv
+#:include  history.kv
+#:include  setting.kv
+
+MDScreen:
+    md_bg_color: self.theme_cls.backgroundColor
+
+    MDTabsSecondary:
+        id: tabs
+        # allow_stretch: True
+        # pos_hint: {"center_x": .5, "center_y": .5}
+        default_tab: tab_home
+
+            
+        MDDivider:
+            size_hint_y: 100
+
+        MDTabsCarousel:
+            id: related_content
+            size_hint_y: None
+            height: root.height - tabs.ids.tab_scroll.height
+            lock_swiping: True
+            
+            # MDLabel:
+            #     text: "home"
+            #     halign: "center"
+            # BoxLayout:
+            #     orientation: 'vertical'
+                
+            #     MDTextField:
+            #         mode: "outlined"
+            Home_page:
+            History_page:
+            Setting_page:
+
+            # MDLabel:
+            #     text: "history"
+            #     halign: "center"
+            
+
+            # MDLabel:
+            #     text: "setting"
+            #     halign: "center"
+
+            
+        MDTabsItem:
+            id: tab_home  
+            MDTabsItemIcon:
+                icon: "home" 
+            MDTabsItemText:
+                text: ''
+
+        MDTabsItem:
+            id: tab_history 
+            
+            MDTabsItemIcon:
+                icon: "history" 
+            MDTabsItemText:
+                text: ''
+
+        MDTabsItem:
+            id: tab_setting  
+            MDTabsItemIcon:
+                icon: "cog" 
+            MDTabsItemText:
+                text: ''

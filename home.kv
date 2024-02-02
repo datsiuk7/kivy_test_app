@@ -1,0 +1,109 @@
+<Home_page@StackLayout>:
+    # orientation: 'vertical'
+    orientation: 'lr-tb'
+
+        # MDButtonText:
+#         text: "Elevated"
+# MDTextField:
+#     mode: "outlined"
+
+#     MDTextFieldHintText:
+#         text: "Hint text"
+    # Field1
+    BoxLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        spacing: '20dp'
+        padding: ('20dp', '10dp')
+        MDTextField:
+            id: field1
+            mode: "outlined"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            MDTextFieldHintText:
+                text: "Hint text1"
+        MDIconButton:
+            style: "tonal"
+            md_bg_color: "brown"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_press: field1.text = ''
+            icon: "close"
+    # Field2
+    BoxLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        spacing: '20dp'
+        padding: ('20dp', '10dp')
+        MDTextField:
+            id: field2
+            mode: "outlined"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            MDTextFieldHintText:
+                text: "Hint text1"
+        MDIconButton:
+            style: "tonal"
+            md_bg_color: "brown"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_press: field2.text = ''
+            icon: "close"
+    # Field3
+    BoxLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        spacing: '20dp'
+        padding: ('20dp', '10dp')
+        MDTextField:
+            id: field3
+            mode: "outlined"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            MDTextFieldHintText:
+                text: "Hint text1"
+        MDIconButton:
+            style: "tonal"
+            md_bg_color: "brown"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_press: field3.text = ''
+            icon: "close"
+    # Field4
+    BoxLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        spacing: '20dp'
+        padding: ('20dp', '10dp')
+        MDTextField:
+            id: field4
+            mode: "outlined"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            MDTextFieldHintText:
+                text: "Hint text2"
+        MDIconButton:
+            style: "tonal"
+            md_bg_color: "brown"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_press: field4.text = ''
+            icon: "close"
+    # Buttons All clear and Submit
+    BoxLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        spacing: '20dp'
+        padding: ('20dp', '30dp')
+        AnchorLayout:
+            MDIconButton:
+                size_hint_x: .9
+                style: "tonal"
+                md_bg_color: "brown"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_press: field1.text = ''
+                icon: "close"
+        AnchorLayout:
+            MDIconButton:
+                size_hint_x: .9
+                style: "tonal"
+                md_bg_color: "brown"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_press: field1.text = ''
+                icon: "close"
+    # MDLabel:
+    #     id: label
+    #     text: 'Текст зміниться при натисканні кнопки'
+    #     halign: 'center'
