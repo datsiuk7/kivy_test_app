@@ -1,109 +1,297 @@
 <Home_page@StackLayout>:
-    # orientation: 'vertical'
     orientation: 'lr-tb'
 
-        # MDButtonText:
-#         text: "Elevated"
-# MDTextField:
-#     mode: "outlined"
-
-#     MDTextFieldHintText:
-#         text: "Hint text"
-    # Field1
-    BoxLayout:
-        size_hint_y: None
-        height: self.minimum_height
-        spacing: '20dp'
-        padding: ('20dp', '10dp')
-        MDTextField:
-            id: field1
-            mode: "outlined"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            MDTextFieldHintText:
-                text: "Hint text1"
-        MDIconButton:
-            style: "tonal"
-            md_bg_color: "brown"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            on_press: field1.text = ''
-            icon: "close"
-    # Field2
-    BoxLayout:
-        size_hint_y: None
-        height: self.minimum_height
-        spacing: '20dp'
-        padding: ('20dp', '10dp')
-        MDTextField:
-            id: field2
-            mode: "outlined"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            MDTextFieldHintText:
-                text: "Hint text1"
-        MDIconButton:
-            style: "tonal"
-            md_bg_color: "brown"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            on_press: field2.text = ''
-            icon: "close"
-    # Field3
-    BoxLayout:
-        size_hint_y: None
-        height: self.minimum_height
-        spacing: '20dp'
-        padding: ('20dp', '10dp')
-        MDTextField:
-            id: field3
-            mode: "outlined"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            MDTextFieldHintText:
-                text: "Hint text1"
-        MDIconButton:
-            style: "tonal"
-            md_bg_color: "brown"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            on_press: field3.text = ''
-            icon: "close"
-    # Field4
-    BoxLayout:
-        size_hint_y: None
-        height: self.minimum_height
-        spacing: '20dp'
-        padding: ('20dp', '10dp')
-        MDTextField:
-            id: field4
-            mode: "outlined"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            MDTextFieldHintText:
-                text: "Hint text2"
-        MDIconButton:
-            style: "tonal"
-            md_bg_color: "brown"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            on_press: field4.text = ''
-            icon: "close"
-    # Buttons All clear and Submit
-    BoxLayout:
-        size_hint_y: None
-        height: self.minimum_height
-        spacing: '20dp'
-        padding: ('20dp', '30dp')
-        AnchorLayout:
-            MDIconButton:
-                size_hint_x: .9
-                style: "tonal"
-                md_bg_color: "brown"
-                pos_hint: {"center_x": .5, "center_y": .5}
-                on_press: field1.text = ''
-                icon: "close"
-        AnchorLayout:
-            MDIconButton:
-                size_hint_x: .9
-                style: "tonal"
-                md_bg_color: "brown"
-                pos_hint: {"center_x": .5, "center_y": .5}
-                on_press: field1.text = ''
-                icon: "close"
+    # BoxLayout:
+    #     size_hint_y: None
+    #     height: self.minimum_height
+    #     spacing: '20dp'
+    #     padding: ('20dp', '10dp')
+    #     TextInput:
+    #         id: text_input1
+    #         hint_text: "Enter text 1"
+    #         input_type: "number"  # Тип клавіатури ("number" для числової клавіатури)
+    #         multiline: True
+            
+    #     MDIconButton:
+    #         style: "tonal"
+    #         md_bg_color: "brown"
+    #         pos_hint: {"center_x": .5, "center_y": .5}
+    #         on_press: field1.text = ''
+    #         icon: "close"
+    # # Field2
+    # BoxLayout:
+    #     size_hint_y: None
+    #     height: self.minimum_height
+    #     spacing: '20dp'
+    #     padding: ('20dp', '10dp')
+    #     TextInput:
+    #         id: text_input2
+    #         hint_text: "Enter text 1"
+    #         input_type: "number"  # Тип клавіатури ("number" для числової клавіатури)
+    #         multiline: True
+    #     MDIconButton:
+    #         style: "tonal"
+    #         md_bg_color: "brown"
+    #         pos_hint: {"center_x": .5, "center_y": .5}
+    #         on_press: field2.text = ''
+    #         icon: "close"
+    # # Field3
+    # BoxLayout:
+    #     size_hint_y: None
+    #     height: self.minimum_height
+    #     spacing: '20dp'
+    #     padding: ('20dp', '10dp')
+    #     MDTextField:
+    #         id: field3
+    #         mode: "filled"
+    #         pos_hint: {"center_x": .5, "center_y": .5}
+    #         MDTextFieldHintText:
+    #             text: "Hint text1"
+    #     MDIconButton:
+    #         style: "tonal"
+    #         md_bg_color: "brown"
+    #         pos_hint: {"center_x": .5, "center_y": .5}
+    #         on_press: field3.text = ''
+    #         icon: "close"
+    # # Field4
+    # BoxLayout:
+    #     size_hint_y: None
+    #     height: self.minimum_height
+    #     spacing: '20dp'
+    #     padding: ('20dp', '10dp')
+    #     MDTextField:
+    #         id: field4
+    #         mode: "filled"
+    #         pos_hint: {"center_x": .5, "center_y": .5}
+    #         multiline: True
+    #         MDTextFieldHintText:
+    #             text: "Hint text2"
+    #     MDIconButton:
+    #         style: "tonal"
+    #         md_bg_color: "brown"
+    #         pos_hint: {"center_x": .5, "center_y": .5}
+    #         on_press: field4.text = ''
+    #         icon: "close"
+    # # Buttons All clear and Submit
+    # BoxLayout:
+    #     size_hint_y: None
+    #     height: self.minimum_height
+    #     spacing: '20dp'
+    #     padding: ('20dp', '30dp')
+    #     AnchorLayout:
+    #         MDIconButton:
+    #             size_hint_x: .9
+    #             style: "tonal"
+    #             md_bg_color: "brown"
+    #             pos_hint: {"center_x": .5, "center_y": .5}
+    #             on_press: field1.text = ''
+    #             icon: "close"
+    #     AnchorLayout:
+    #         MDIconButton:
+    #             size_hint_x: .9
+    #             style: "tonal"
+    #             md_bg_color: "brown"
+    #             pos_hint: {"center_x": .5, "center_y": .5}
+    #             on_press: field1.text = ''
+    #             icon: "close"
     # MDLabel:
     #     id: label
     #     text: 'Текст зміниться при натисканні кнопки'
     #     halign: 'center'
+
+
+ 
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: '20dp'
+            padding: ('20dp', '10dp')
+            Label:
+                id: text_input1
+                text: '0'
+                font_size: '50dp'
+                height: self.texture_size[1]
+                background_color: 0, 0.9, 0.9, 1
+                color: 1, 1, 1, 1
+                on_touch_up: app.on_text_input_click(self, args[1])
+                canvas.before:
+                    Color:
+                        rgba: 0.5, 0.5, 0.5, 0.5  # Колір фону (світло-сірий)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Color:
+                        rgba: 0, 0, 0, 1  # Колір рамки (чорний)
+                    Line:
+                        width: 1         # Ширина рамки
+                        rectangle: self.x, self.y, self.width, self.height
+            # TextInput:
+            #     focus: False
+            #     id: text_input1
+            #     hint_text: "Enter text 1"
+            #     readonly: True
+            MDIconButton:
+                style: "tonal"
+                md_bg_color: "brown"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_press: text_input1.text = ''
+                icon: "close"
+
+        BoxLayout:
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: '20dp'
+            padding: ('20dp', '10dp')
+            Label:
+                id: text_input2
+                text: '0'
+                font_size: '50dp'
+                height: self.texture_size[1]
+                background_color: 0, 0.9, 0.9, 1
+                color: 1, 1, 1, 1
+                on_touch_up: app.on_text_input_click(self, args[1])
+                canvas.before:
+                    Color:
+                        rgba: 0.5, 0.5, 0.5, 0.5  # Колір фону (світло-сірий)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                    Color:
+                        rgba: 0, 0, 0, 1  # Колір рамки (чорний)
+                    Line:
+                        width: 1         # Ширина рамки
+                        rectangle: self.x, self.y, self.width, self.height
+            # TextInput:
+            #     focus: False
+            #     id: text_input1
+            #     hint_text: "Enter text 1"
+            #     readonly: True
+            MDIconButton:
+                style: "tonal"
+                md_bg_color: "brown"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_press: text_input1.text = ''
+                icon: "close"
+
+        BoxLayout:
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: '20dp'
+            padding: ('20dp', '10dp')
+            TextInput:
+                id: text_input3
+                hint_text: "Enter text 1"
+                input_type: "number"  # Тип клавіатури ("number" для числової клавіатури)
+                
+            MDIconButton:
+                style: "tonal"
+                md_bg_color: "brown"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_press: field1.text = ''
+                icon: "close"
+        BoxLayout:
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: '20dp'
+            padding: ('20dp', '10dp')
+            TextInput:
+                id: text_input3
+                hint_text: "Enter text 1"
+                input_type: "number"  # Тип клавіатури ("number" для числової клавіатури)
+                
+            MDIconButton:
+                style: "tonal"
+                md_bg_color: "brown"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_press: field1.text = ''
+                icon: "close"
+        BoxLayout:
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: '20dp'
+            padding: ('20dp', '30dp')
+            AnchorLayout:
+                MDIconButton:
+                    size_hint_x: .9
+                    style: "tonal"
+                    md_bg_color: "brown"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    on_press: field1.text = ''
+                    icon: "close"
+            AnchorLayout:
+                MDIconButton:
+                    size_hint_x: .9
+                    style: "tonal"
+                    md_bg_color: "brown"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    on_press: field1.text = ''
+                    icon: "close"
+        # TextInput:
+        #     id: text_input3
+        #     text: "MDLabel"
+        #     on_touch_up: app.on_text_input_click(self, args[1])
+        #     always_open: True
+        # TextInput:
+        #     id: text_input4
+        #     text: "MDLabel"
+        #     on_touch_up: app.on_text_input_click(self, args[1])
+        #     always_open: True
+        # MDLabel:
+        #     id: text_input1
+        #     text: "MDLabel"
+        #     on_touch_up: app.on_text_input_click(self, args[1])
+
+        # MDLabel:
+        #     id: text_input2
+        #     text: "MDLabel"
+        #     on_touch_up: app.on_text_input_click(self, args[1])
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            BoxLayout:
+                orientation: 'horizontal'        
+                Button:
+                    text: '1'
+                    on_release: app.add_char("1")
+                Button:
+                    text: '2'
+                    on_release: app.add_char("2")
+                Button:
+                    text: '3'
+                    on_release: app.add_char("3")
+            BoxLayout:
+                orientation: 'horizontal'        
+                Button:
+                    text: '4'
+                    on_release: app.add_char("4")
+                Button:
+                    text: '5'
+                    on_release: app.add_char("5")
+                Button:
+                    text: '6'
+                    on_release: app.add_char("6")
+            BoxLayout:
+                orientation: 'horizontal'        
+                Button:
+                    text: '7'
+                    on_release: app.add_char("7")
+                Button:
+                    text: '8'
+                    on_release: app.add_char("8")
+                Button:
+                    text: '9'
+                    on_release: app.add_char("9")
+            BoxLayout:
+                orientation: 'horizontal'        
+                Button:
+                    text: '.'
+                    on_release: app.add_char(".")
+                Button:
+                    text: '0'
+                    on_release: app.add_char("0")
+                Button:
+                    text: 'del'
+                    on_release: app.del_char()

@@ -5,10 +5,16 @@
 MDScreen:
     md_bg_color: self.theme_cls.backgroundColor
 
+    Image:
+        source: 'bg1.jpg'
+        allow_stretch: True
+        keep_ratio: False
+
     MDTabsSecondary:
         id: tabs
         # allow_stretch: True
         # pos_hint: {"center_x": .5, "center_y": .5}
+        do_default_tab: False
         default_tab: tab_home
 
             
@@ -21,35 +27,17 @@ MDScreen:
             height: root.height - tabs.ids.tab_scroll.height
             lock_swiping: True
             
-            # MDLabel:
-            #     text: "home"
-            #     halign: "center"
-            # BoxLayout:
-            #     orientation: 'vertical'
-                
-            #     MDTextField:
-            #         mode: "outlined"
             Home_page:
             History_page:
             Setting_page:
-
-            # MDLabel:
-            #     text: "history"
-            #     halign: "center"
             
-
-            # MDLabel:
-            #     text: "setting"
-            #     halign: "center"
-
-            
+                
         MDTabsItem:
             id: tab_home  
             MDTabsItemIcon:
                 icon: "home" 
             MDTabsItemText:
                 text: ''
-
         MDTabsItem:
             id: tab_history 
             
@@ -57,6 +45,7 @@ MDScreen:
                 icon: "history" 
             MDTabsItemText:
                 text: ''
+
 
         MDTabsItem:
             id: tab_setting  
