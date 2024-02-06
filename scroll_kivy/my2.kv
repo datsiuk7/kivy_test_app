@@ -1,0 +1,77 @@
+MDScreen:
+    md_bg_color: self.theme_cls.backgroundColor
+
+    MDTabsSecondary:
+        id: tabs
+        do_default_tab: False
+        default_tab: tab_home
+    
+            
+        MDDivider:
+            size_hint_y: 100
+
+        MDTabsCarousel:
+            id: related_content
+            size_hint_y: None
+            height: root.height - tabs.ids.tab_scroll.height
+            lock_swiping: True
+
+            BoxLayout:
+                on_release: screen_manager.current = 'screen1'
+
+                      
+        MDTabsItem:
+            id: tab_home  
+            MDTabsItemIcon:
+                icon: "home" 
+                on_release: print(1)
+            MDTabsItemText:
+                text: ''
+
+# MDScreen:
+#     MDTabsPrimary:
+#         id: tabs
+#         MDDivider:
+#         MDTabsCarousel:
+#             size_hint_y: None
+#             height: root.height - tabs.ids.tab_scroll.height
+#             ScreenManager:
+#                 Screen:
+#                     MDScrollView:
+#                         MDButton:
+#                             MDButtonText:
+#                                 text: "Elevated"
+        
+#         MDTabsItem:
+#             MDTabsItemIcon:
+#                 icon: "home"
+
+
+    MDScreen:
+        ScreenManager:
+            id: screen_manager
+            Screen:
+                name: 'screen1'
+                BoxLayout:
+                    orientation: 'vertical'
+                    MDButton:
+                        text: "Перейти на сторінку 2"
+                        on_release: 
+                            screen_manager.transition.direction = 'right'
+                            screen_manager.current = 'screen2'
+                    MDScrollView:
+                        MDButton:
+                            MDButtonText:
+                                text: "Elevated"
+                
+
+#         Screen:
+#             name: 'screen2'
+#             BoxLayout:
+#                 orientation: 'vertical'
+#                 MDButton:
+#                     text: "Повернутися на сторінку 1"
+#                     on_release: screen_manager.current = 'screen1'
+#                 Label:
+#                     text: 'Вміст сторінки 2'
+

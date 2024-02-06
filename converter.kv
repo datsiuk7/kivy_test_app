@@ -12,7 +12,6 @@ MDScreen:
         # pos_hint: {"center_x": .5, "center_y": .5}
         do_default_tab: False
         default_tab: tab_home
-
             
         MDDivider:
             size_hint_y: 100
@@ -21,7 +20,8 @@ MDScreen:
             id: related_content
             size_hint_y: None
             height: root.height - tabs.ids.tab_scroll.height
-            lock_swiping: True
+            # lock_swiping: True
+            animation_duration: 0
 
             # Home page
 
@@ -30,6 +30,38 @@ MDScreen:
 
                 BoxLayout:
                     orientation: 'vertical'
+                    # field0
+                    BoxLayout:
+                        size_hint_y: None
+                        height: self.minimum_height
+                        spacing: '20dp'
+                        padding: ('20dp', '10dp')
+                        Label:
+                            id: text_input0
+                            text: ''
+                            font_size: '50dp'
+                            height: self.texture_size[1]
+                            background_color: 0, 0.9, 0.9, 1
+                            color: 1, 1, 1, 1
+                            on_touch_up: app.on_text_input_click(self, args[1], id_input=0)
+                            canvas.before:
+                                Color:
+                                    rgba: 0.5, 0.5, 0.5, 0.5  # Колір фону (світло-сірий)
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                Color:
+                                    rgba: 0.5, 0, 0, 0.3
+                                Line:
+                                    width: 2         # Ширина рамки
+                                    rectangle: self.x, self.y, self.width, self.height
+            
+                        MDIconButton:
+                            style: "tonal"
+                            md_bg_color: "brown"
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            on_press: text_input0.text = ''
+                            icon: "alpha-v"
                     # field1
                     BoxLayout:
                         size_hint_y: None
@@ -61,7 +93,7 @@ MDScreen:
                             md_bg_color: "brown"
                             pos_hint: {"center_x": .5, "center_y": .5}
                             on_press: text_input1.text = ''
-                            icon: "alpha-v"
+                            icon: "alpha-a"
                     # field2
                     BoxLayout:
                         size_hint_y: None
@@ -93,7 +125,7 @@ MDScreen:
                             md_bg_color: "brown"
                             pos_hint: {"center_x": .5, "center_y": .5}
                             on_press: text_input2.text = ''
-                            icon: "alpha-a"
+                            icon: "alpha-w"
                     # field3
                     BoxLayout:
                         size_hint_y: None
@@ -125,38 +157,6 @@ MDScreen:
                             md_bg_color: "brown"
                             pos_hint: {"center_x": .5, "center_y": .5}
                             on_press: text_input3.text = ''
-                            icon: "alpha-w"
-                    # field4
-                    BoxLayout:
-                        size_hint_y: None
-                        height: self.minimum_height
-                        spacing: '20dp'
-                        padding: ('20dp', '10dp')
-                        Label:
-                            id: text_input4
-                            text: ''
-                            font_size: '50dp'
-                            height: self.texture_size[1]
-                            background_color: 0, 0.9, 0.9, 1
-                            color: 1, 1, 1, 1
-                            on_touch_up: app.on_text_input_click(self, args[1], id_input=4)
-                            canvas.before:
-                                Color:
-                                    rgba: 0.5, 0.5, 0.5, 0.5  # Колір фону (світло-сірий)
-                                Rectangle:
-                                    pos: self.pos
-                                    size: self.size
-                                Color:
-                                    rgba: 0, 0, 0, 0
-                                Line:
-                                    width: 2         # Ширина рамки
-                                    rectangle: self.x, self.y, self.width, self.height
-            
-                        MDIconButton:
-                            style: "tonal"
-                            md_bg_color: "brown"
-                            pos_hint: {"center_x": .5, "center_y": .5}
-                            on_press: text_input4.text = ''
                             icon: "omega"
                     # allclear and submit
                     BoxLayout:
@@ -170,7 +170,7 @@ MDScreen:
                                 style: "tonal"
                                 md_bg_color: "brown"
                                 pos_hint: {"center_x": .5, "center_y": .5}
-                                on_press: text_input1.text = '';text_input2.text = '';text_input3.text = '';text_input4.text = '';
+                                on_press: text_input0.text = '';text_input1.text = '';text_input2.text = '';text_input3.text = '';
                                 icon: "close"
                         AnchorLayout:
                             MDIconButton:
@@ -178,7 +178,7 @@ MDScreen:
                                 style: "tonal"
                                 md_bg_color: "brown"
                                 pos_hint: {"center_x": .5, "center_y": .5}
-                                # on_press: field1.text = ''
+                                on_press: app.mainCount()
                                 icon: "location-enter"
                     # keyboard
                     BoxLayout:
@@ -231,10 +231,16 @@ MDScreen:
                                 on_release: app.del_char()
             
             # History page
-            BoxLayout:
-                MDLabel:
-                    text: "history"
-                    halign: "center"
+            ScrollView:
+                do_scroll_y:True
+                id: list_items
+                BoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    Button:
+                        text: "1"
+                        size_hint: (.1,.1)
+
 
             # Setting page
             BoxLayout:
@@ -245,6 +251,7 @@ MDScreen:
                 
         MDTabsItem:
             id: tab_home  
+            on_release: lambda _: print(1)
             MDTabsItemIcon:
                 icon: "home" 
             MDTabsItemText:

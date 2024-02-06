@@ -1,0 +1,71 @@
+# MDScreen:
+#     MDTabsPrimary:
+#         id: tabs
+#         # allow_stretch: False
+#         # pos_hint: {"center_x": .5, "center_y": .5}
+#         MDDivider:
+
+#         MDTabsCarousel:
+#             size_hint_y: None
+#             height: root.height - tabs.ids.tab_scroll.height
+#             BoxLayout:
+#                 orientation: 'vertical'
+#                 MDScrollView:
+#                     BoxLayout:
+#                         orientation: 'vertical'
+#                         Label:
+#                             text: "hi"
+#                             pos_hint: {"center_x": .5, "center_y": .5}
+                      
+#         MDTabsItem:
+#             MDTabsItemIcon:
+#                 icon: "home"
+
+
+# MDScreen:
+#     MDTabsPrimary:
+#         id: tabs
+#         MDDivider:
+#         MDTabsCarousel:
+#             size_hint_y: None
+#             height: root.height - tabs.ids.tab_scroll.height
+#             ScreenManager:
+#                 Screen:
+#                     MDScrollView:
+#                         MDButton:
+#                             MDButtonText:
+#                                 text: "Elevated"
+        
+#         MDTabsItem:
+#             MDTabsItemIcon:
+#                 icon: "home"
+
+
+MDScreen:
+    ScreenManager:
+        id: screen_manager
+        Screen:
+            name: 'screen1'
+            BoxLayout:
+                orientation: 'vertical'
+                MDButton:
+                    text: "Перейти на сторінку 2"
+                    on_release: 
+                        screen_manager.transition.direction = 'right'
+                        screen_manager.current = 'screen2'
+                MDScrollView:
+                    MDButton:
+                        MDButtonText:
+                            text: "Elevated"
+            
+
+        Screen:
+            name: 'screen2'
+            BoxLayout:
+                orientation: 'vertical'
+                MDButton:
+                    text: "Повернутися на сторінку 1"
+                    on_release: screen_manager.current = 'screen1'
+                Label:
+                    text: 'Вміст сторінки 2'
+
