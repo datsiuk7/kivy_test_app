@@ -245,16 +245,75 @@ MDScreen:
             
 
 <PageHistoryScreen>
-    ScrollView:
-        do_scroll_y:True
-        id: list_items
-        BoxLayout:
-            orientation: "vertical"
-            size_hint_y: None
-            Button:
-                text: "1"
-                size_hint: (.1,.1)
-            TableRow:
+    MyRecycleView:
+        viewclass: 'TableRow' 
+        RecycleBoxLayout:
+            orientation: 'vertical'  
+            default_size: None, dp(50) 
+            default_size_hint: 1, None  
+            size_hint_y: None  
+            height: self.minimum_height
+            
+
+    # ScrollView:
+    #     do_scroll_y:True
+        # BoxLayout:
+        #     # size_hint_y: None
+        #     orientation: "vertical"
+        #     id: list_items
+        #     size_hint: (1,0.9)
+        #     Button:
+        #         text: "1"
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
+        #     TableRow:
 
 <PageSettingScreen>
     MDLabel:
@@ -263,18 +322,27 @@ MDScreen:
 
 
 <TableRow>:
-    cols: 4
-    spacing: 10
+    v: ''
+    a: ''
+    w: ''
+    o: ''
     size_hint_y: None
-    height: dp(50)
+    orientation: "vertical"
+    GridLayout:
+        cols: 5
+        spacing: 10
+        # size_hint_y: None
+        # size_hint_y: dp(75)
 
-    Label:
-        text: root.col1_text
-    Label:
-        text: root.col2_text
-    Label:
-        text: root.col3_text
-    Button:
-        text: "Видалити рядок"
-        # on_release: root.delete_row() 
+        Label:
+            text: root.v
+        Label:
+            text: root.a
+        Label:
+            text: root.w
+        Label:
+            text: root.o
+        Button:
+            text: "Видалити рядок"
+            # on_release: root.delete_row() 
 

@@ -9,6 +9,7 @@ from kivy.uix.screenmanager import NoTransition
 from kivy.uix.gridlayout import GridLayout
 import math
 import random
+from kivy.uix.recycleview import RecycleView
 
 class PageHomeScreen(MDScreen):
     ...
@@ -16,13 +17,22 @@ class PageHistoryScreen(MDScreen):
     ...
 class PageSettingScreen(MDScreen):
     ...
-class TableRow(GridLayout):
+class TableRow(BoxLayout):
+    # def __init__(self, text1='', text2='', text3='', **kwargs):
+    #     super(TableRow, self).__init__(**kwargs)
+    #     self.text1 = text1
+    #     self.text2 = text2
+    #     self.text3 = text3
     # def __init__(self, col1_text, col2_text, col3_text, col4_text, **k):
     #     self.col1_text = col1_text
     #     self.col2_text = col2_text
     #     self.col3_text = col3_text
     #     self.col4_text = col4_text
     ...
+class MyRecycleView(RecycleView):
+    def __init__(self, **kwargs):
+        super(MyRecycleView, self).__init__(**kwargs)
+        self.data = [{'v': str(i), 'a': str(i), 'w': str(i), 'o': str(i)} for i in range(12)]
 
 
 class ConverterApp(MDApp):
@@ -40,9 +50,9 @@ class ConverterApp(MDApp):
         self.active_text_input = self.lists_input[0]
 
         matrix = [[str(random.randint(0, 9)) for _ in range(4)] for _ in range(10)]
-        for item in matrix:
-            row = TableRow(item)
-        self.page_history.add_widget(row)
+        # for item in matrix:
+        #     row = TableRow()
+        #     self.root.ids.screen_manager.get_screen('screenHistory').ids.list_items.add_widget(row)
 
     def navigate_to_screen1(self, num):
         self.root.ids.screen_manager.current = str(num)
