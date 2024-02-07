@@ -1,45 +1,52 @@
 from kivymd.app import MDApp
-from kivymd.uix.stacklayout import StackLayout
 from kivymd.uix.button import MDButton, MDButtonText
 from kivymd.uix.dialog import MDDialog, MDDialogHeadlineText, MDDialogButtonContainer, MDDialogSupportingText
 from kivy.uix.widget import Widget
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.uix.list import MDListItem, MDListItemHeadlineText
-import kivymd.uix as k
-from kivymd.uix.label import MDLabel
-from kivy.uix.button import Button
-
+from kivymd.uix.screen import MDScreen
+from kivy.uix.screenmanager import NoTransition
+from kivy.uix.gridlayout import GridLayout
 import math
+import random
+
+class PageHomeScreen(MDScreen):
+    ...
+class PageHistoryScreen(MDScreen):
+    ...
+class PageSettingScreen(MDScreen):
+    ...
+class TableRow(GridLayout):
+    # def __init__(self, col1_text, col2_text, col3_text, col4_text, **k):
+    #     self.col1_text = col1_text
+    #     self.col2_text = col2_text
+    #     self.col3_text = col3_text
+    #     self.col4_text = col4_text
+    ...
+
 
 class ConverterApp(MDApp):
 
     def on_start(self):
         super().on_start()
-        
-        # self.root.ids.field1.focus = True
-        # self.root.ids.tabs.switch_tab(icon="home")
-        # self.root.ids.tabs.set_active_item(self.root.ids.tabs.get_tabs_list()[2])  # Встановити другу вкладку (індекс 1) як активну
-        # print("-----------------")
-        # print(self.root.ids)
-        # print("-----------------")
-        # print(self.root.ids.tabs.get_tabs_list())
-        # print(dir(self.root.ids.tabs.default_tab))
-        # self.root.ids.tabs.switch_tab(self.root.ids.tab_history)
+        # self.page_home = PageHomeScreen()
+        # self.page_history = PageHistoryScreen()
         self.lists_input = [
-            self.root.ids.text_input0,
-            self.root.ids.text_input1,
-            self.root.ids.text_input2,
-            self.root.ids.text_input3,
+            self.root.ids.screen_manager.get_screen('screenHome').ids.text_input0,
+            self.root.ids.screen_manager.get_screen('screenHome').ids.text_input1,
+            self.root.ids.screen_manager.get_screen('screenHome').ids.text_input2,
+            self.root.ids.screen_manager.get_screen('screenHome').ids.text_input3,
         ]
         self.active_text_input = self.lists_input[0]
 
-        # for i in range(30):
-            # box = BoxLayout(orientation='horizontal', height= "48dp", size_hint_y= None)
-            # label = MDLabel(text=f'Row {i}',md_bg_color="brown")
-        # label = Button(text=str(1+1),size_hint=(.1,.1))
-            # box.add_widget(label)
+        matrix = [[str(random.randint(0, 9)) for _ in range(4)] for _ in range(10)]
+        for item in matrix:
+            row = TableRow(item)
+        self.page_history.add_widget(row)
 
-
+    def navigate_to_screen1(self, num):
+        self.root.ids.screen_manager.current = str(num)
+        self.root.ids.screen_manager.transition = NoTransition()
 
         
     def add_char(self, value):
@@ -98,7 +105,6 @@ class ConverterApp(MDApp):
             self.lists_input[id_input].canvas.before.children[3].rgba = active_color
             
             self.active_text_input = self.lists_input[id_input]
-
 
 
     def show_alert_dialog(self):
